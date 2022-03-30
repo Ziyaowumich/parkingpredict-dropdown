@@ -195,12 +195,12 @@ function App() {
         <h1>Input</h1>
         <label htmlFor="demo-dropdown">Demo: </label>
         <select name="Select Image" id="demo-dropdown" value={selectedDropdownFile} onChange={handleDropdown}>
-            <option value="">-- Select Demo File --</option>
+            
             {demoDropdownFiles.map((file) => <option key={file} value={file}>{file}</option>)}
         </select>
         <form onSubmit={handleSubmit}>
-          <label for="appt">Choose a parking time :</label>
-          <input type="time" id="appt" name="appt" min="00:00" max="23:59" onChange={handleunchange} />  
+          <label for="appt">Choose a parking time :   </label>
+            <input type="time" id="appt" name="appt" min="00:00" max="23:59" onChange={handleunchange} />  
           <button type="submit">{submitButtonText}</button>
         </form>
       </div>
