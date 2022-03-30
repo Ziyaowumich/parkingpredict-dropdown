@@ -182,6 +182,7 @@ function App() {
     const encodedString = base64DataArray[1];
     setInputFileData(encodedString);
     console.log('file converted successfully');
+    setButtonDisable(false);
   }
 
 
@@ -201,7 +202,7 @@ function App() {
         <form onSubmit={handleSubmit}>
           <label for="appt">Choose a parking time :  </label>
             <input type="time" id="appt" name="appt" min="00:00" max="23:59" onChange={handleunchange} />  
-          <button type="submit">{submitButtonText}</button>
+          <button type="submit" disabled = {buttonDisable}>  {submitButtonText}</button>
         </form>
       </div>
       <div className="Output">
