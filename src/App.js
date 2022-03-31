@@ -203,20 +203,20 @@ function App() {
       <a href="https://www.ziyaowang19971002.com/">To my personal website</a>
       <p>ziyaow@umich.edu</p>
       <a href="https://www.ziyaowang19971002.com/home/project-page/project1_spec">Click here for detailed project technical report</a>
-        <h1>Input</h1>
-        <label htmlFor="demo-dropdown">Demo: </label>
+        <h1>Enter your parking time</h1>
+        <label htmlFor="demo-dropdown">Demo: pick a provided time </label>
         <select name="Select Image" id="demo-dropdown" value={selectedDropdownFile} onChange={handleDropdown} disabled = {demoDisable}>
-            <option value="">-- Select Demo File --</option>
+            <option value="">-- Select time --</option>
             {demoDropdownFiles.map((file) => <option key={file} value={file}>{file}</option>)}
         </select>
         <form onSubmit={handleSubmit}>
-          <label for="appt">Choose a parking time :  </label>
+          <label for="appt">Choose your own parking time :  </label>
             <input type="time" id="appt" name="appt" min="00:00" max="23:59" onChange={handleunchange} disabled={timeDisable}/>  
           <button type="submit" disabled = {buttonDisable}>  {submitButtonText}</button>
         </form>
       </div>
       <div className="Output">
-        <h1>Results</h1>
+        <h1>Prediction</h1>
         <img src={outputFileData} alt="" />
         
       </div>
