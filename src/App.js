@@ -29,6 +29,8 @@ function App() {
   const [fileButtonText, setFileButtonText] = React.useState('Upload File');
   const [demoDropdownFiles, setDemoDropdownFiles] = React.useState([]);
   const [selectedDropdownFile, setSelectedDropdownFile] = React.useState('');
+  const [timeDisable, settimeDisable] = React.useState(false);
+  const [demoDisable, setdemoDisable] = React.useState(false);
 
   // make GET request to get demo files on load -- takes a second to load
   React.useEffect(() => {
@@ -88,6 +90,7 @@ function App() {
 
     // enable submit button
     setButtonDisable(false);
+    setdemoDisable(true);
 
     // clear response results
     setOutputFileData('');
@@ -126,6 +129,9 @@ function App() {
 
       // re-enable submit button
       setButtonDisable(false);
+      settimeDisable(false);
+      setdemoDisable(false);
+
       setSubmitButtonText('Submit');
     })
   }
@@ -137,6 +143,7 @@ function App() {
 
     // temporarily disable submit button
     setButtonDisable(true);
+    settimeDisable(true);
     setSubmitButtonText('Loading Demo File...');
 
     // only make POST request on file selection
@@ -159,6 +166,7 @@ function App() {
           setInputImage('data:image/png;base64,' + dropdownFileBytesData); // hacky way of setting image from bytes data - even works on .jpeg lol
           setSubmitButtonText('Submit');
           setButtonDisable(false);
+          
         }
       });
     }
@@ -183,6 +191,8 @@ function App() {
     setInputFileData(encodedString);
     console.log('file converted successfully');
     setButtonDisable(false);
+    settimeDisable(false);
+    setdemoDisable(true);
   }
 
 
@@ -195,13 +205,13 @@ function App() {
       <a href="https://www.ziyaowang19971002.com/home/project-page/project1_spec">Click here for detailed project technical report</a>
         <h1>Input</h1>
         <label htmlFor="demo-dropdown">Demo: </label>
-        <select name="Select Image" id="demo-dropdown" value={selectedDropdownFile} onChange={handleDropdown}>
+        <select name="Select Image" id="demo-dropdown" value={selectedDropdownFile} onChange={handleDropdown} disabled = {demoDisable}>
             <option value="">-- Select Demo File --</option>
             {demoDropdownFiles.map((file) => <option key={file} value={file}>{file}</option>)}
         </select>
         <form onSubmit={handleSubmit}>
           <label for="appt">Choose a parking time :  </label>
-            <input type="time" id="appt" name="appt" min="00:00" max="23:59" onChange={handleunchange} />  
+            <input type="time" id="appt" name="appt" min="00:00" max="23:59" onChange={handleunchange} disabled={timeDisable}/>  
           <button type="submit" disabled = {buttonDisable}>  {submitButtonText}</button>
         </form>
       </div>
