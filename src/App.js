@@ -216,8 +216,8 @@ function App() {
         </form>
       </div>
       <div className="Output">
-        <h1>Prediction</h1>
-        <img src={outputFileData} alt="" />
+        <h1>Parking Prediction</h1>
+        <img src={outputFileData} width="auto" height= "auto" alt="" />
         
       </div>
       
