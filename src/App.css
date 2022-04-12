@@ -57,8 +57,9 @@
   text-align: center;
 }
 
-.img{
-  max-width: 100%;
+.test{
+  max-width: 150%;
   height: auto;
-  width: auto\9;
+  width: auto;
+  object-fit:contain;
 }

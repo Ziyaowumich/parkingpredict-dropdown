@@ -217,7 +217,7 @@ function App() {
       </div>
       <div className="Output">
         <h1>Parking Prediction</h1>
-        <img src={outputFileData} width="auto" height= "auto" alt="" />
+        <img src={outputFileData} className="test" alt="" />
         
       </div>
       
